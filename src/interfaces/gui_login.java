@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Toolkit;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -23,7 +25,9 @@ public class gui_login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUsuario;
-	private JPasswordField passContraseña;
+	private JLabel lblErrorUsuario;
+	private JLabel lblErrorContraseña;
+	private JTextField txtContraseña;
 
 	/**
 	 * Launch the application.
@@ -86,17 +90,17 @@ public class gui_login extends JFrame {
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("usuario incorrecto");
-		lblNewLabel_3.setForeground(new Color(128, 0, 0));
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_3.setBounds(133, 107, 139, 20);
-		contentPane.add(lblNewLabel_3);
+		lblErrorUsuario = new JLabel("");
+		lblErrorUsuario.setForeground(new Color(128, 0, 0));
+		lblErrorUsuario.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblErrorUsuario.setBounds(133, 107, 139, 20);
+		contentPane.add(lblErrorUsuario);
 		
-		JLabel lblNewLabel_4 = new JLabel("contraseña incorrecta");
-		lblNewLabel_4.setForeground(new Color(128, 0, 0));
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblNewLabel_4.setBounds(133, 170, 139, 20);
-		contentPane.add(lblNewLabel_4);
+		lblErrorContraseña = new JLabel("");
+		lblErrorContraseña.setForeground(new Color(128, 0, 0));
+		lblErrorContraseña.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblErrorContraseña.setBounds(133, 170, 139, 20);
+		contentPane.add(lblErrorContraseña);
 		
 		JButton btnIngresar = new JButton("Ingresar");
 		btnIngresar.addActionListener(new ActionListener() {
@@ -125,20 +129,41 @@ public class gui_login extends JFrame {
 		lblNewLabel_6_1.setIcon(new ImageIcon("D:\\JAVA\\JAVA DESKTOP\\PROYECTO_D_Y_T\\imagenes\\contra_login.png"));
 		lblNewLabel_6_1.setBounds(10, 138, 24, 32);
 		contentPane.add(lblNewLabel_6_1);
-		
-		passContraseña = new JPasswordField();
-		passContraseña.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		passContraseña.setBounds(133, 138, 139, 32);
-		contentPane.add(passContraseña);
+		{
+			txtContraseña = new JTextField();
+			txtContraseña.setBounds(133, 138, 139, 31);
+			contentPane.add(txtContraseña);
+			txtContraseña.setColumns(10);
+		}
 	}
 	//Restricciones
 	void expresiones() {
+		String usuario = txtUsuario.getText().trim();
+		String clave = txtContraseña.getText().trim();
 		
-	}
+			if(usuario.matches("^\\d{5}$") && usuario.length() > 0) {
+				lblErrorUsuario.setForeground(Color.GREEN);
+				lblErrorUsuario.setText("Usuario Correcto");
+			}
+			else {
+				lblErrorUsuario.setForeground(Color.RED);
+				lblErrorUsuario.setText("Usuario incorrecto");
+			}
+			if(clave.matches("^\\d{8}[A-Za-z]{2}$") && clave.length() > 0) {
+				lblErrorContraseña.setForeground(Color.GREEN);
+				lblErrorContraseña.setText("Usuario Correcto");
+			}
+			else {
+				lblErrorContraseña.setForeground(Color.RED);
+				lblErrorContraseña.setText("Contraseña incorrecta");
+			}
+		}
+
 	
 	
 	
 	//Botono Ingresar
 	protected void actionPerformedBtnIngresar(ActionEvent e) {
+		expresiones();
 	}
 }
