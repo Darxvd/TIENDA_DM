@@ -1,28 +1,24 @@
-package entidad;
+package clases;
 
 
 public class Empleado {
 	//Atributos
 	private int COD_EMPLEADO;
-    private int DNI_EMPLEADO;
+    private String DNI_EMPLEADO;
     private String NOM_EMPLEADO, APL_EMPLEADO, FNAC_EMPLEADO;
     private int EDAD;
     private String DIR_EMPLEADO;
     private int COD_CARGO;
     private String NOM_CARGO;
-    //Metodos 
-    @Override
-    public String toString() {
-    	return "Empleado [COD_EMPLEADO=" + COD_EMPLEADO + ", DNI_EMPLEADO=" + DNI_EMPLEADO + ", NOM_EMPLEADO="
-    			+ NOM_EMPLEADO + ", APL_EMPLEADO=" + APL_EMPLEADO + ", FNAC_EMPLEADO=" + FNAC_EMPLEADO + ", EDAD="
-    			+ EDAD + ", DIR_EMPLEADO=" + DIR_EMPLEADO + ", COD_CARGO=" + COD_CARGO + ", NOM_CARGO=" + NOM_CARGO
-    			+ "]";
-    }
-	public Empleado() {
+    private String PASS_EMPLEADO;
+    
+    
+    
+    public Empleado() {
 		super();
 	}
-	public Empleado(int cOD_EMPLEADO, int dNI_EMPLEADO, String nOM_EMPLEADO, String aPL_EMPLEADO, String fNAC_EMPLEADO,
-			int eDAD, String dIR_EMPLEADO, int cOD_CARGO, String nOM_CARGO) {
+	public Empleado(int cOD_EMPLEADO, String dNI_EMPLEADO, String nOM_EMPLEADO, String aPL_EMPLEADO, String fNAC_EMPLEADO,
+			int eDAD, String dIR_EMPLEADO, int cOD_CARGO, String nOM_CARGO, String pASS_EMPLEADO) {
 		super();
 		COD_EMPLEADO = cOD_EMPLEADO;
 		DNI_EMPLEADO = dNI_EMPLEADO;
@@ -33,6 +29,29 @@ public class Empleado {
 		DIR_EMPLEADO = dIR_EMPLEADO;
 		COD_CARGO = cOD_CARGO;
 		NOM_CARGO = nOM_CARGO;
+		PASS_EMPLEADO = pASS_EMPLEADO;
+	}
+	public Empleado(int cOD_EMPLEADO, String dNI_EMPLEADO, String nOM_EMPLEADO, String aPL_EMPLEADO, int eDAD, String nOM_CARGO) {
+		super();
+		this.COD_EMPLEADO = cOD_EMPLEADO;
+		this.DNI_EMPLEADO = dNI_EMPLEADO;
+		this.NOM_EMPLEADO = nOM_EMPLEADO;
+		this.APL_EMPLEADO = aPL_EMPLEADO;
+		this.EDAD = eDAD;
+		this.NOM_CARGO = nOM_CARGO;		
+	}
+	@Override
+	public String toString() {
+		return "Empleado [COD_EMPLEADO=" + COD_EMPLEADO + ", DNI_EMPLEADO=" + DNI_EMPLEADO + ", NOM_EMPLEADO="
+				+ NOM_EMPLEADO + ", APL_EMPLEADO=" + APL_EMPLEADO + ", FNAC_EMPLEADO=" + FNAC_EMPLEADO + ", EDAD="
+				+ EDAD + ", DIR_EMPLEADO=" + DIR_EMPLEADO + ", COD_CARGO=" + COD_CARGO + ", NOM_CARGO=" + NOM_CARGO
+				+ ", PASS_EMPLEADO=" + PASS_EMPLEADO + "]";
+	}
+	public String getPASS_EMPLEADO() {
+		return PASS_EMPLEADO;
+	}
+	public void setPASS_EMPLEADO(String pASS_EMPLEADO) {
+		PASS_EMPLEADO = pASS_EMPLEADO;
 	}
 	public int getCOD_EMPLEADO() {
 		return COD_EMPLEADO;
@@ -40,10 +59,10 @@ public class Empleado {
 	public void setCOD_EMPLEADO(int cOD_EMPLEADO) {
 		COD_EMPLEADO = cOD_EMPLEADO;
 	}
-	public int getDNI_EMPLEADO() {
+	public String getDNI_EMPLEADO() {
 		return DNI_EMPLEADO;
 	}
-	public void setDNI_EMPLEADO(int dNI_EMPLEADO) {
+	public void setDNI_EMPLEADO(String dNI_EMPLEADO) {
 		DNI_EMPLEADO = dNI_EMPLEADO;
 	}
 	public String getNOM_EMPLEADO() {

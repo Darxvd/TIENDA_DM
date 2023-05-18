@@ -5,6 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import clases.Empleado;
+
 import java.awt.Toolkit;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -159,9 +162,7 @@ public class gui_login extends JFrame {
 			}
 		}
 
-	
-	
-	
+
 	//Botono Ingresar
 	protected void actionPerformedBtnIngresar(ActionEvent e) {
 		expresiones();

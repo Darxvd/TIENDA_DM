@@ -15,6 +15,9 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import arreglos.arrEmpleado;
+
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 
@@ -41,6 +44,12 @@ public class gui_man_empleado extends JInternalFrame {
 	private JLabel lblNewLabel_8;
 	private JComboBox comboBox_1;
 	private JButton btnNewButton_1;
+	private JLabel lblNewLabel_9;
+	private JTextField textField_7;
+	
+	//Atributos
+	private arrEmpleado objP;
+	private ArrayList<P>
 
 	/**
 	 * Launch the application.
@@ -213,6 +222,18 @@ public class gui_man_empleado extends JInternalFrame {
 			btnNewButton_1 = new JButton("OK");
 			btnNewButton_1.setBounds(236, 230, 79, 23);
 			getContentPane().add(btnNewButton_1);
+		}
+		{
+			lblNewLabel_9 = new JLabel("Contraseña");
+			lblNewLabel_9.setFont(new Font("Tahoma", Font.PLAIN, 13));
+			lblNewLabel_9.setBounds(28, 261, 79, 23);
+			getContentPane().add(lblNewLabel_9);
+		}
+		{
+			textField_7 = new JTextField();
+			textField_7.setBounds(98, 263, 128, 20);
+			getContentPane().add(textField_7);
+			textField_7.setColumns(10);
 		}
 
 	}
